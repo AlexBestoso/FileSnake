@@ -208,6 +208,13 @@ class FileSnake{
 
         }
 
+	bool perm(string file, mode_t perms){
+                if(chmod(file.c_str(), perms) == 0)
+                        return true;
+                else
+                        return false;
+        }
+
 	/*
 	 * listDir ignores ./ and ../ so this should be safe, lol.
 	 * it should try to delete if it detects a symlink...not sure if that's a good idea or not yet.
